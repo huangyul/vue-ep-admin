@@ -9,28 +9,34 @@ export default {
   clearMocks: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
+  // 告诉jest需要处理的文件
   moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   // 别名设置
   moduleNameMapper: {
-    '@/(.*)$': '<rootDir>/src/components/$1'
+    '@/(.*)$': '<rootDir>/src/components/$1',
   },
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   // 测试文件
   testMatch: ['<rootDir>/src/__tests__/**/*.spec.(ts|tsx|js)'],
   testPathIgnorePatterns: ['/node_modules/'],
-  moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
-  
+
   transform: {
+    // 用vue-jest处理vue文件
     '^.+\\.vue$': 'vue-jest',
+    // 用 `babel-jest` 处理 js
     '^.+\\.(ts|tsx|js|jsx)$': [
-      'babel-jest', {
+      'babel-jest',
+      {
         presets: [
           ['@babel/preset-env', { targets: { node: 'current' } }],
-          ['@babel/preset-typescript']
+          ['@babel/preset-typescript'],
         ],
-        plugins: ['@vue/babel-plugin-jsx']
-      }
-    ]
-  }
+        plugins: ['@vue/babel-plugin-jsx'],
+      },
+    ],
+  },
+  // 测试覆盖率
+  collectCoverage: true,
+  collectCoverageFrom: ['./src/**/*.{js,vue}', '!**/node_modules/**'],
 }
