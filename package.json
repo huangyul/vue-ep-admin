@@ -8,11 +8,12 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "cz": "npx git-cz",
-    "test": "jest"
+    "test": "jest",
+    "dev:prod": "vite cross-env NODE_ENV=production"
   },
   "dependencies": {
+    "mockjs": "^1.1.0",
     "pinia": "^2.0.23",
-    "sass": "^1.56.0",
     "vue": "^3.2.41",
     "vue-router": "4"
   },
@@ -22,12 +23,16 @@
     "@babel/preset-typescript": "^7.18.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^29.2.2",
+    "@types/mockjs": "^1.0.7",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "@vue/test-utils": "^2.0.0-rc.18",
     "babel-jest": "26.0.0",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
+    "dotenv-cli": "^6.0.0",
     "jest": "26.0.0",
+    "sass": "^1.56.0",
     "ts-jest": "26.4.4",
     "typescript": "^4.6.4",
     "vite": "^3.2.0",
